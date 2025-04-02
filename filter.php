@@ -1,3 +1,4 @@
+<?php declare(strict_types=1);?>
 <?php
 session_start(); // Inicia a sessão
 
