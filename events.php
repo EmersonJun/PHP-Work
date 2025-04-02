@@ -1,3 +1,4 @@
+<?php declare(strict_types=1);?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -7,6 +8,7 @@
 </head>
 <body>
     <?php 
+    
     // Definição do array de eventos com suas informações
         $events =[
             ["id" => 1, "titulo" => "Festival de Teatro de Curitiba", "categoria" => "Teatro", "descricao" => "O maior festival de teatro da América Latina.", "imagem" => "./img/foto-linasumizono-70.avif"],
