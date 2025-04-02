@@ -7,8 +7,9 @@
 </head>
 <body>
     <?php 
+    // Definição do array de eventos com suas informações
         $events =[
-            ["id" => 1, "titulo" => "Festival de Teatro de Curitiba", "categoria" => "Teatro", "descricao" => "O maior festival de teatro da América Latina.", "imagem" => "./img/foto-linasumizono-70.jpg"],
+            ["id" => 1, "titulo" => "Festival de Teatro de Curitiba", "categoria" => "Teatro", "descricao" => "O maior festival de teatro da América Latina.", "imagem" => "./img/foto-linasumizono-70.avif"],
             ["id" => 2, "titulo" => "Bienal de Arte Contemporânea", "categoria" => "Arte", "descricao" => "Exposição de artistas renomados e novos talentos.", "imagem" => "./img/bienal.jpg"],
             ["id" => 3, "titulo" => "Show na Ópera de Arame", "categoria" => "Música", "descricao" => "Apresentação especial na icônica Ópera de Arame.", "imagem" => "./img/operaArame.jpg"],
             ["id" => 4, "titulo" => "Feira do Poeta", "categoria" => "Literatura", "descricao" => "Encontro de escritores e amantes da poesia.", "imagem" => "./img/feiraPoeta.jpg"],
@@ -29,6 +30,7 @@
             ["id" => 19, "titulo" => "Festival de Cultura Japonesa", "categoria" => "Cultura", "descricao" => "Gastronomia, danças e cultura do Japão.", "imagem" => "cultura_japonesa.jpg"],
             ["id" => 20, "titulo" => "Oficina de Escrita Criativa", "categoria" => "Literatura", "descricao" => "Workshop para desenvolver técnicas de escrita.", "imagem" => "escrita_criativa.jpg"]
         ];
+        // Se houver eventos adicionais na sessão, mescla com os eventos existentes
         if (isset($_SESSION['events'])) {
             $events = array_merge($events, $_SESSION['events']);
         }
