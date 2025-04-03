@@ -1,11 +1,10 @@
-<?php declare(strict_types=1);?>
-<?php
+<?php declare(strict_types=1);
 session_start();
 include 'functions.php';
 include 'events.php';
 
 // Verifica se um filtro foi enviado via POST
-$categoria = isset($_POST['categoria']) ? $_POST['categoria'] : '';
+$categoria = $_POST['categoria'] ?? ''; // Usa operador de coalescência nula
 $eventosFiltrados = [];
 
 // Filtra os eventos com base na categoria selecionada
@@ -31,7 +30,7 @@ if (!empty($categoria)) {
     
     <!-- Formulário de filtragem -->
     <h2>Filtrar Eventos por Categoria</h2>
-    <form method="POST" action=""> <!-- O próprio arquivo lida com a filtragem -->
+    <form method="POST" action="">
         <label for="categoria">Escolha uma categoria:</label>
         <select name="categoria" id="categoria">
             <option value="">Todas</option>
@@ -46,6 +45,16 @@ if (!empty($categoria)) {
 
     <!-- Exibição dos eventos -->
     <h2>Lista de Eventos</h2>
-    <?= listar_eventos($eventosFiltrados); ?>
+    <ul>
+        <?php foreach ($eventosFiltrados as $event): ?>
+            <li>
+                <h2><?= htmlspecialchars($event['titulo']) ?></h2>
+                <p><strong>Categoria:</strong> <?= htmlspecialchars($event['categoria']) ?></p>
+                <img src="<?= htmlspecialchars($event['imagem']) ?>" alt="<?= htmlspecialchars($event['titulo']) ?>" width="150">
+                <p><?= htmlspecialchars($event['descricao']) ?></p>
+                <p><a href="detalhes.php?id=<?= $event['id'] ?>">Ver mais detalhes</a></p>
+            </li>
+        <?php endforeach; ?>
+    </ul>
 </body>
 </html>
