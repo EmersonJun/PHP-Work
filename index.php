@@ -68,7 +68,9 @@ if (!empty($categoria)) {
     <h1 class="mb-4">Eventos Culturais em Curitiba</h1>
 
     <!-- Exibição dos eventos -->
-    <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4">
+
+    <!-- adicao de bootstrap -->
+     <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4"> <!-- efeitos ultilizados para embelezar o codigo -->
     <?php foreach ($eventosFiltrados as $event) { ?>
         <div class="col">
             <div class="card h-100">
