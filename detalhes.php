@@ -23,23 +23,33 @@ if (!$eventoSelecionado) {
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Detalhes do Evento</title>
 </head>
-<body>
-    <h1><?= htmlspecialchars($eventoSelecionado['titulo']) ?></h1>
-    
-    <img src="<?= htmlspecialchars($eventoSelecionado['imagem']) ?>" alt="<?= htmlspecialchars($eventoSelecionado['titulo']) ?>" width="300">
-    
-    <p><strong>Categoria:</strong> <?= htmlspecialchars($eventoSelecionado['categoria']) ?></p>
-    <p><strong>Descrição:</strong> <?= htmlspecialchars($eventoSelecionado['descricao']) ?></p>
-    <p><strong>Local:</strong> <?= htmlspecialchars($eventoSelecionado['local']) ?></p>
-    <p><strong>Data e Hora:</strong> <?= htmlspecialchars($eventoSelecionado['data_hora']) ?></p>
-    <p><strong>Preço:</strong> <?= htmlspecialchars($eventoSelecionado['preco']) ?></p>
-    <p><strong>Contato:</strong> <?= htmlspecialchars($eventoSelecionado['contato']) ?></p>
-    <p><strong>Mais Informações:</strong> <a href="<?= htmlspecialchars($eventoSelecionado['link']) ?>" target="_blank">Clique aqui</a></p>
-    
-    <p><a href="index.php">Voltar</a></p>
+<body class="p-3 mb-2 bg-dark-subtle text-dark-emphasis d-flex align-items-center justify-content-center" style="min-height: 100vh;">
+    <div class="card shadow rounded-4" style="width: 100%; max-width: 500px;">
+        <img src="<?= htmlspecialchars($eventoSelecionado['imagem']) ?>" 
+             class="card-img-top rounded-top-4" 
+             alt="<?= htmlspecialchars($eventoSelecionado['titulo']) ?>" 
+             style="height: 250px; object-fit: cover;">
+             
+        <div class="card-body">
+            <h4 class="card-title"><?= htmlspecialchars($eventoSelecionado['titulo']) ?></h4>
+            
+            <p class="mb-1"><strong>Categoria:</strong> <?= htmlspecialchars($eventoSelecionado['categoria']) ?></p>
+            <p class="mb-1"><strong>Descrição:</strong> <?= htmlspecialchars($eventoSelecionado['descricao']) ?></p>
+            <p class="mb-1"><strong>Local:</strong> <?= htmlspecialchars($eventoSelecionado['local']) ?></p>
+            <p class="mb-1"><strong>Data e Hora:</strong> <?= htmlspecialchars($eventoSelecionado['data_hora']) ?></p>
+            <p class="mb-1"><strong>Preço:</strong> <?= htmlspecialchars($eventoSelecionado['preco']) ?></p>
+            <p class="mb-3"><strong>Contato:</strong> <?= htmlspecialchars($eventoSelecionado['contato']) ?></p>
+
+            <div class="d-grid gap-2">
+                <a href="<?= htmlspecialchars($eventoSelecionado['link']) ?>" target="_blank" class="btn btn-dark btn-sm">Mais Informações</a>
+                <a href="index.php" class="btn btn-secondary btn-sm">Voltar</a>
+            </div>
+        </div>
+    </div>
 </body>
 </html>

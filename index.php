@@ -58,7 +58,7 @@ if (!empty($categoria)) {
             class="form-control form-control-sm me-2" 
             placeholder="Ex: Teatro, Música, etc." 
             value="<?= htmlspecialchars($categoria) ?>">
-          <button type="submit" class="btn btn-primary btn-sm">Filtrar</button>
+          <button type="submit" class="btn btn-secondary">Filtrar</button>
         </form>
       </div>
     </div>
@@ -82,7 +82,7 @@ if (!empty($categoria)) {
                 <div class="card-body">
                     <h5 class="card-title"><?= htmlspecialchars($event['titulo']) ?></h5>
                     <p class="card-text"><strong>Categoria:</strong> <?= htmlspecialchars($event['categoria']) ?></p>
-                    <a href="detalhes.php?id=<?= $event['id'] ?>" class="btn btn-outline-primary">Ver mais detalhes</a>
+                    <a href="detalhes.php?id=<?= $event['id'] ?>" class="btn btn-secondary">Ver mais detalhes</a>
                 </div>
             </div>
         </div>
