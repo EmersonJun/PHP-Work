@@ -31,7 +31,7 @@ if (!empty($categoria)) {
 </head>
     <!-- retirado de moldelo do site do bootstrap -->
     <header class="mb-4">
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark w-100">
+    <nav class="navbar navbar-expand-lg navbar-dark btn btn-dark btn-sm w-100">
       <div class="container">
         <a class="navbar-brand text-white" href="index.php">Início</a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
@@ -64,7 +64,7 @@ if (!empty($categoria)) {
     </div>
   </nav>
 </header>
-<body class="container py-4">
+<body class="container-xxl">
     <h1 class="mb-4">Eventos Culturais em Curitiba</h1>
 
     <!-- Exibição dos eventos -->
