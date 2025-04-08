@@ -27,9 +27,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 <body class="bg-light d-flex align-items-center justify-content-center" style="height: 100vh;">
     <div class="card shadow p-4 rounded-4" style="width: 100%; max-width: 400px;">
         <h4 class="text-center mb-3">Login de Acesso</h4>
-        <?php if ($erro): ?>
+        <?php if ($erro){ ?>
             <div class="alert alert-danger"><?= htmlspecialchars($erro) ?></div>
-        <?php endif; ?>
+        <?php } ?>
         <form method="POST">
             <div class="mb-3">
                 <label for="usuario" class="form-label">Usuário</label>
@@ -41,7 +41,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             </div>
             <div class="d-grid">
                 <button type="submit" class="btn btn-dark">Entrar</button>
-                    
+
                 <a href="index.php" class="btn btn-outline-dark mt-2">Voltar ao Início</a>
             </div>
         </form>

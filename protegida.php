@@ -45,9 +45,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             <a href="index.php" class="btn btn-outline-dark">Voltar ao Início</a>
         </div>
 
-        <?php if (!empty($mensagem)): ?>
+        <?php if (!empty($mensagem)) { ?>
             <div class="alert alert-success"><?= htmlspecialchars($mensagem) ?></div>
-        <?php endif; ?>
+        <?php } ?>
 
         <form method="POST" class="bg-white p-4 rounded-4 shadow">
             <div class="row g-3">
