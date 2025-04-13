@@ -1,53 +1,44 @@
-<?php declare(strict_types=1);?>
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Functions</title>
-</head>
-<body>
-<?php
-// Definição da função listar_eventos, que recebe um array de eventos e os exibe na tela.
+<?php declare(strict_types=1);
 function listar_eventos($events) {
-    // Verifica se o array de eventos está vazio
     if (empty($events)) {
-        echo "<p>Nenhum evento encontrado.</p>"; // Exibe uma mensagem caso não existam eventos
-        return; // Encerra a função
+        echo "<p>Nenhum evento encontrado.</p>";
+        return;
     }
 
-    echo "<ul>"; // Inicia uma lista HTML para exibir os eventos
-    
-    // Percorre o array de eventos para exibir cada um deles
+    echo "<ul>";
+
     foreach ($events as $event) {
-        echo "<li>"; // Inicia um item da lista para cada evento
-        echo "<h2>{$event['titulo']}</h2>"; // Exibe o título do evento
-        echo "<p><strong>Categoria:</strong> {$event['categoria']}</p>"; // Exibe a categoria do evento
-        echo "<img src='{$event['imagem']}' alt='{$event['titulo']}' width='150'>"; // Exibe a imagem do evento
-        echo "<p>{$event['descricao']}</p>"; // Exibe a descrição do evento
-        echo "<p><a href='events.php?id={$event['id']}'>Ver mais detalhes</a></p>"; // Link para detalhes do evento
-        echo "</li>"; // Fecha o item da lista
-    }
-    
-    echo "</ul>"; // Fecha a lista HTML
-}
-    function normalizarTexto($texto): string {
-        // Deixa tudo minúsculo
-        $texto = mb_strtolower($texto, 'UTF-8');
-    
-        // Remove acentos
-        $texto = strtr($texto, [
-            'á'=>'a','à'=>'a','â'=>'a','ã'=>'a','ä'=>'a',
-            'é'=>'e','è'=>'e','ê'=>'e','ë'=>'e',
-            'í'=>'i','ì'=>'i','î'=>'i','ï'=>'i',
-            'ó'=>'o','ò'=>'o','ô'=>'o','õ'=>'o','ö'=>'o',
-            'ú'=>'u','ù'=>'u','û'=>'u','ü'=>'u',
-            'ç'=>'c'
-        ]);
-    
-        return $texto;
-    }
-?>
+        echo "<li>";
+        echo "<h2>{$event['titulo']}</h2>";
+        echo "<p><strong>Categoria:</strong> {$event['categoria']}</p>";
+        echo "<img src='{$event['imagem']}' alt='{$event['titulo']}' width='150'>";
+        echo "<p>{$event['descricao']}</p>";
+        echo "<p><a href='events.php?id={$event['id']}'>Ver mais detalhes</a></p>";
 
-</body>
-</html>
+        // Exibe botão de remover se logado
+        if (isset($_SESSION['logado'])) {
+            echo "<form method='POST' action='remover.php' onsubmit='return confirm(\"Tem certeza que deseja remover este evento?\");'>";
+            echo "<input type='hidden' name='id' value='{$event['id']}'>";
+            echo "<button type='submit' class='btn btn-danger btn-sm'>Remover</button>";
+            echo "</form>";
+        }
+
+        echo "</li>";
+    }
+
+    echo "</ul>";
+}
+
+function normalizarTexto($texto): string {
+    $texto = mb_strtolower($texto, 'UTF-8');
+    $texto = strtr($texto, [
+        'á'=>'a','à'=>'a','â'=>'a','ã'=>'a','ä'=>'a',
+        'é'=>'e','è'=>'e','ê'=>'e','ë'=>'e',
+        'í'=>'i','ì'=>'i','î'=>'i','ï'=>'i',
+        'ó'=>'o','ò'=>'o','ô'=>'o','õ'=>'o','ö'=>'o',
+        'ú'=>'u','ù'=>'u','û'=>'u','ü'=>'u',
+        'ç'=>'c'
+    ]);
+    return $texto;
+}
+?>

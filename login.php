@@ -1,13 +1,9 @@
 <?php
 session_start();
-
 $erro = '';
-
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $usuario = $_POST['usuario'] ?? '';
     $senha = $_POST['senha'] ?? '';
-
-    // Usuário e senha fixos para exemplo
     if ($usuario === 'admin' && $senha === '1234') {
         $_SESSION['logado'] = true;
         header('Location: protegida.php');
@@ -41,7 +37,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             </div>
             <div class="d-grid">
                 <button type="submit" class="btn btn-dark">Entrar</button>
-
                 <a href="index.php" class="btn btn-outline-dark mt-2">Voltar ao Início</a>
             </div>
         </form>

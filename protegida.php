@@ -1,18 +1,13 @@
 <?php
 session_start();
-
 if (!isset($_SESSION['logado'])) {
-    header('Location: loggin.php');
+    header('Location: login.php');
     exit();
 }
-
 include 'events.php';
-
-// Inicializa a lista se ainda não estiver na sessão
 if (!isset($_SESSION['events'])) {
     $_SESSION['events'] = [];
 }
-
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $novoEvento = [
         "id" => count($events) + count($_SESSION['events']) + 1,
@@ -26,7 +21,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         "contato" => $_POST['contato'],
         "link" => $_POST['link']
     ];
-
     $_SESSION['events'][] = $novoEvento;
     $mensagem = "Evento adicionado com sucesso!";
 }
